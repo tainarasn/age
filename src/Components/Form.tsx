@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./style.scss"
-import { Box, IconButton, TextField } from "@mui/material"
+import { Box, IconButton, TextField, SxProps } from "@mui/material"
 import { Formik, Form as Formu } from "formik"
 import submit from "../Images/icon-arrow.svg"
 import { Info } from "./Info"
@@ -44,37 +44,36 @@ export const Form: React.FC<FormProps> = ({}) => {
     const [oldDays, setOldDays] = useState(0)
 
     const handleSubmit = (values: FormValues) => {
-        const currentDate = new Date();
-        const currentYear = currentDate.getFullYear();
-        const currentMonth = currentDate.getMonth() + 1; // Adicionamos 1 ao mês atual porque o objeto Date indexa os meses de 0 a 11
-        const currentDay = currentDate.getDate();
-      
-        let years = currentYear - Number(values.year);
-        let months = currentMonth - Number(values.month);
-        let days = currentDay - Number(values.day);
-      
+        const currentDate = new Date()
+        const currentYear = currentDate.getFullYear()
+        const currentMonth = currentDate.getMonth() + 1 // Adicionamos 1 ao mês atual porque o objeto Date indexa os meses de 0 a 11
+        const currentDay = currentDate.getDate()
+
+        let years = currentYear - Number(values.year)
+        let months = currentMonth - Number(values.month)
+        let days = currentDay - Number(values.day)
+
         // Se o mês atual for menor que o mês fornecido pelo usuário, subtraímos 1 dos anos
         if (months < 0) {
-          years--;
-          months += 12; // Adicionamos 12 meses para obter o mês correto
+            years--
+            months += 12 // Adicionamos 12 meses para obter o mês correto
         }
-      
+
         // Se o dia atual for menor que o dia fornecido pelo usuário e o mês atual também for menor,
         // ajustamos os meses novamente e subtraímos 1 dos anos
         if (days < 0 && months === 0) {
-          years--;
-          months = 11;
-          days += new Date(currentYear, currentMonth, 0).getDate(); // Obtemos o último dia do mês anterior
+            years--
+            months = 11
+            days += new Date(currentYear, currentMonth, 0).getDate() // Obtemos o último dia do mês anterior
         } else if (days < 0) {
-          months--;
-          days += new Date(currentYear, currentMonth - 1, 0).getDate(); // Obtemos o último dia do mês anterior
+            months--
+            days += new Date(currentYear, currentMonth - 1, 0).getDate() // Obtemos o último dia do mês anterior
         }
-      
-        setOldYears(years);
-        setOldMonths(months);
-        setOldDays(days);
-      };
-      
+
+        setOldYears(years)
+        setOldMonths(months)
+        setOldDays(days)
+    }
 
     return (
         <Box sx={{ flexDirection: "row" }}>

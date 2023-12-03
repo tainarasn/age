@@ -1,16 +1,21 @@
-import logo from "./logo.svg";
-import './App.css';
+import logo from "./logo.svg"
 import { Modal } from "./Components/Modal"
+import { Box } from "@mui/material"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      
-      </header>
-    </div>
-  );
+    return (
+        <Box
+            sx={{
+                display: "flex",
+                width: "100vw",
+                height: "48vw",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
+            <Modal />
+        </Box>
+    )
 }
 
-export default App;
+export default App
