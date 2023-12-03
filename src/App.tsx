@@ -1,5 +1,5 @@
 import logo from "./logo.svg"
-import { Modal } from "./src/Components/Modal"
+import { Modal } from "./Components/Modal"
 import { Box } from "@mui/material"
 
 function App() {
