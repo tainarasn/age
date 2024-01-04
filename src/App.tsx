@@ -1,20 +1,15 @@
-import logo from "./logo.svg"
-import { Modal } from "./Components/Modal"
-import { Box } from "@mui/material"
-
+import "./App.css"
+import { Snackbar } from "@mui/material"
+import { Routes } from "./Routes"
+import { Providers } from "./Providers"
+import "@mantine/core/styles.css"
+import { ConfirmDialog } from "burgos-confirm"
 function App() {
     return (
-        <Box
-            sx={{
-                display: "flex",
-                width: "100vw",
-                height: "48vw",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
-            <Modal />
-        </Box>
+        <Providers>
+            <Routes />
+            <Snackbar />
+        </Providers>
     )
 }
 

@@ -9,8 +9,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
     align-items: center;
     justify-content: center;
-    background: -webkit-linear-gradient(left, #ffffff, #cb5c8c);
-    display: flex;
+    background: -webkit-linear-gradient(left, #470361, #d04905);
+    
 }
 
 code {

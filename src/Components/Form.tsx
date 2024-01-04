@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import "./style.scss"
-import { Box, IconButton, TextField, SxProps } from "@mui/material"
+import { Box, IconButton, TextField, SxProps, Tooltip } from "@mui/material"
 import { Formik, Form as Formu } from "formik"
 import submit from "../Images/icon-arrow.svg"
 import { Info } from "./Info"
+import { input_style } from "../styles/input_style"
 
 interface FormProps {}
 interface FormValues {
@@ -76,15 +77,16 @@ export const Form: React.FC<FormProps> = ({}) => {
     }
 
     return (
-        <Box sx={{ flexDirection: "row" }}>
+        <Box sx={{ flexDirection: "column" }}>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                 {({ values, handleChange, errors }) => (
                     <Formu onChange={handleChange}>
                         <div className="input-container">
-                            <Box sx={{ gap: 0 }}>
-                                <p>Dia</p>
+                            <Box sx={{ gap: 0, flexDirection: "column" }}>
+                                <p style={{ fontFamily: "space" }}>Dia</p>
                                 <TextField
                                     name="day"
+                                    sx={{ ...input_style, width: "max-content" }}
                                     value={values.day}
                                     onChange={handleChange}
                                     error={!!errors.day}
@@ -101,12 +103,12 @@ export const Form: React.FC<FormProps> = ({}) => {
                                             handleChange({ target: { name: "day", value: "" } })
                                         }
                                     }}
-                                    sx={{ width: "max-content" }}
                                 />
                             </Box>
-                            <Box>
-                                <p>Mês</p>
+                            <Box sx={{ flexDirection: "column" }}>
+                                <p style={{ fontFamily: "space" }}>Mês</p>
                                 <TextField
+                                    sx={{ ...input_style, width: "max-content" }}
                                     name="month"
                                     value={values.month}
                                     onChange={handleChange}
@@ -124,20 +126,20 @@ export const Form: React.FC<FormProps> = ({}) => {
                                             handleChange({ target: { name: "month", value: "" } })
                                         }
                                     }}
-                                    sx={{ width: "max-content" }}
                                 />
                             </Box>
-                            <Box>
-                                <p>Ano</p>
+                            <Box sx={{ flexDirection: "column" }}>
+                                <p style={{ fontFamily: "space" }}>Ano</p>
                                 <TextField
                                     name="year"
                                     value={values.year}
                                     onChange={handleChange}
                                     error={!!errors.year}
                                     helperText={errors.year}
+                                    sx={{ ...input_style, width: "max-content" }}
                                     inputProps={{
                                         type: "number",
-                                        min: 1,
+                                        min: 1870,
                                         max: 2023,
                                     }}
                                     onBlur={(e) => {
@@ -147,36 +149,37 @@ export const Form: React.FC<FormProps> = ({}) => {
                                             handleChange({ target: { name: "year", value: "" } })
                                         }
                                     }}
-                                    sx={{ width: "max-content" }}
                                 />
                             </Box>
                         </div>
-                        <IconButton
-                            className="icon"
-                            sx={{
-                                position: "relative",
-                                left: "34vw",
-                                bottom: "1vw",
-                                width: "5vw",
-                                height: "5vw",
-                                borderRadius: "50%",
-                                backgroundColor: "hsl(259, 100%, 65%)",
-                            }}
-                            type="submit"
-                        >
-                            <img src={submit} alt="" />
-                        </IconButton>
+                        <Tooltip title="Calcular" sx={{ fontFamily: "space" }}>
+                            <IconButton
+                                className="icon"
+                                sx={{
+                                    position: "relative",
+                                    left: "30vw",
+                                    bottom: "1vw",
+                                    width: "5vw",
+                                    height: "5vw",
+                                    borderRadius: "50%",
+                                    background: "-webkit-linear-gradient(left, #470361, #d04905)",
+                                }}
+                                type="submit"
+                            >
+                                <img src={submit} alt="" />
+                            </IconButton>
+                        </Tooltip>
                     </Formu>
                 )}
             </Formik>
             <hr
                 style={{
                     height: "1px",
-                    width: "73.5%",
+                    width: "65%",
                     border: "none",
-                    backgroundColor: "hsl(0, 0%, 86%)",
+                    background: "-webkit-linear-gradient(left, #470361, #d04905)",
                     position: "relative",
-                    right: "2.5vw",
+                    right: "4vw",
                     bottom: "4vw",
                 }}
             />
