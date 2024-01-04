@@ -12,6 +12,7 @@ export const Info: React.FC<InfoProps> = ({ day, month, year }) => {
         fontWeight: "700",
         width: "100%",
         margin: 0,
+        color: "#fff",
     }
     const span = {
         background: "-webkit-linear-gradient(left, #470361, #d04905)",
@@ -35,17 +36,17 @@ export const Info: React.FC<InfoProps> = ({ day, month, year }) => {
         >
             <p style={style}>
                 <i>
-                    <span style={{ ...span }}>{year}</span> years
+                    <span style={{ ...span }}>{year == 0 ? "--" : year}</span> years
                 </i>
             </p>
             <p style={style}>
                 <i>
-                    <span style={{ ...span }}>{month}</span> months
+                    <span style={{ ...span }}>{month == 0 ? "--" : month}</span> months
                 </i>
             </p>
             <p style={style}>
                 <i>
-                    <span style={{ ...span }}>{day}</span> days
+                    <span style={{ ...span }}>{day == 0 ? "--" : day}</span> days
                 </i>
             </p>
         </Box>
