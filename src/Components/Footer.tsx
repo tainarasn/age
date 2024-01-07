@@ -13,6 +13,7 @@ export const Footer: React.FC<FooterProps> = ({}) => {
                 fontSize: "0.7vw",
                 alignItems: "center",
                 justifyContent: "center",
+                color: "#fff",
             }}
         >
             {" "}

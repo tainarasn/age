@@ -83,7 +83,7 @@ export const Form: React.FC<FormProps> = ({}) => {
                     <Formu onChange={handleChange}>
                         <div className="input-container">
                             <Box sx={{ gap: 0, flexDirection: "column" }}>
-                                <p style={{ fontFamily: "space" }}>Dia</p>
+                                <p style={{ fontFamily: "space", color: "#fff" }}>Dia</p>
                                 <TextField
                                     name="day"
                                     sx={{ ...input_style, width: "max-content" }}
@@ -106,7 +106,7 @@ export const Form: React.FC<FormProps> = ({}) => {
                                 />
                             </Box>
                             <Box sx={{ flexDirection: "column" }}>
-                                <p style={{ fontFamily: "space" }}>Mês</p>
+                                <p style={{ fontFamily: "space", color: "#fff" }}>Mês</p>
                                 <TextField
                                     sx={{ ...input_style, width: "max-content" }}
                                     name="month"
@@ -129,7 +129,7 @@ export const Form: React.FC<FormProps> = ({}) => {
                                 />
                             </Box>
                             <Box sx={{ flexDirection: "column" }}>
-                                <p style={{ fontFamily: "space" }}>Ano</p>
+                                <p style={{ fontFamily: "space", color: "#fff" }}>Ano</p>
                                 <TextField
                                     name="year"
                                     value={values.year}
